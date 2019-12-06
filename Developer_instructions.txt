@@ -1,0 +1,17 @@
+The code is set to function as a controler for a vehicle.
+
+Bluetooth serial connection begins in 9600 baud.
+
+It includes 2 motors which is set to pin 1 and 2 of the feather wing.
+
+It includes 5 pre-defined speeds, and they're forward, reverse and three diffrent turning speeds to control the vehicle smooth.
+
+In this code we re-program the buttons that are built in the Bluefruit Le app and set to controls required by the developer.
+
+The first 4 buttons consist 4 controls and they're forward, reverse, left and right.
+
+The rest 4 buttons does the same but with different speeds.
+
+
+The other files which are the BluetoothConfig and packetParser are used to establish connection between the Bluefruit board and the Bluefruit Le app.
+These were standard code to connect the bluetooth connection which was taken out from other developers. 

@@ -1,0 +1,6 @@
+The code provided here is intended to move the vehicle that we've built. 
+Which contains 4 basic controls and they're forward, reverse, left, and right.
+If you look at the code we have repetitive code because we needed 2 set of the same controls but in different speeds in order to refine the controls and to make sharp turns.
+Button 1-4 is the first set of controls and button 5-8 is the next set of controls with refine speeds.
+
+The other 2 files which are BluefruitConfig and packetParser is used to establish the connection between the Bluefruit board and Bluefruit Le connect app.
