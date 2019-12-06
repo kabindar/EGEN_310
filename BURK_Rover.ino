@@ -15,8 +15,6 @@
 // Connect SDA to I2C data pin
 
 
-
-
 // Create the motor shield object with the default I2C address
 Servo myservo; 
 Adafruit_MotorShield AFMS = Adafruit_MotorShield(); 
@@ -199,54 +197,4 @@ void BLEsetup(){
     error(F("Couldn't find Bluefruit, make sure it's in CoMmanD mode & check wiring?"));
   }
   Serial.println( F("OK!") );
-
-  /* Perform a factory reset to make sure everything is in a known state */
-  Serial.println(F("Performing a factory reset: "));
-  if (! ble.factoryReset() ){
-       error(F("Couldn't factory reset"));
-  }
-
-  //Convert the name change command to a char array
-  BROADCAST_CMD.toCharArray(buf, 60);
-
-  //Change the broadcast device name here!
-  if(ble.sendCommandCheckOK(buf)){
-    Serial.println("name changed");
-  }
-  delay(250);
-
-  //reset to take effect
-  if(ble.sendCommandCheckOK("ATZ")){
-    Serial.println("resetting");
-  }
-  delay(250);
-
-  //Confirm name change
-  ble.sendCommandCheckOK("AT+GAPDEVNAME");
-
-  /* Disable command echo from Bluefruit */
-  ble.echo(false);
-
-  Serial.println("Requesting Bluefruit info:");
-  /* Print Bluefruit information */
-  ble.info();
-
-  Serial.println(F("Please use Adafruit Bluefruit LE app to connect in Controller mode"));
-  Serial.println(F("Then activate/use the sensors, color picker, game controller, etc!"));
-  Serial.println();
-
-  ble.verbose(false);  // debug info is a little annoying after this point!
-
-  /* Wait for connection */
-  while (! ble.isConnected()) {
-      delay(500);
-  }
-
-  Serial.println(F("*****************"));
-
-  // Set Bluefruit to DATA mode
-  Serial.println( F("Switching to DATA mode!") );
-  ble.setMode(BLUEFRUIT_MODE_DATA);
-
-  Serial.println(F("*****************"));
 }
